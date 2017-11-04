@@ -34,8 +34,22 @@
 #pragma once
 
 #include <KlayGE/SALWrapper.hpp>
+#if defined(KLAYGE_COMPILER_CLANG)
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wmicrosoft-enum-value" // Ignore int enum
+#endif
 #include <dxgi1_6.h>
+#if defined(KLAYGE_COMPILER_CLANG)
+#pragma clang diagnostic pop
+#endif
+#if defined(KLAYGE_COMPILER_CLANG)
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wmicrosoft-enum-value" // Ignore int enum
+#endif
 #include <d3d12.h>
+#if defined(KLAYGE_COMPILER_CLANG)
+#pragma clang diagnostic pop
+#endif
 #if defined(KLAYGE_COMPILER_GCC) || defined(KLAYGE_COMPILER_CLANG)
 #undef __out
 #endif

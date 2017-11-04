@@ -1,5 +1,5 @@
 IF(KLAYGE_COMPILER_CLANGC2)
-	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-microsoft-enum-value -Wno-microsoft-const-init -Wno-sign-compare -Wno-unused-variable -Wno-error")
+	STRING(REPLACE "-Werror" "-Wno-error" CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS}) # Ignore a warning: conversion function converting 'Cxxx' to its base class 'xxx' will never be used
 ENDIF()
 IF(KLAYGE_PLATFORM_WINDOWS_STORE)
 	STRING(REPLACE "/permissive-" "" CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS})

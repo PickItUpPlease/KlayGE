@@ -51,10 +51,15 @@
 #if defined(KLAYGE_COMPILER_GCC)
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations" // Ignore auto_ptr declaration
+#elif defined(KLAYGE_COMPILER_CLANG)
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable" // Ignore unused variable (mpl_assertion_in_line_xxx) in boost
 #endif
 #include <boost/program_options.hpp>
 #if defined(KLAYGE_COMPILER_GCC)
 #pragma GCC diagnostic pop
+#elif defined(KLAYGE_COMPILER_CLANG)
+#pragma clang diagnostic pop
 #endif
 
 using namespace std;
